@@ -56,6 +56,7 @@ class UNet(nn.Module):
 
         dec4 = self.upconv4(bottleneck)
         dec4 = torch.cat((enc4, dec4), dim=1)
+        dec4 = self.decoder4(dec4)
         
         dec3 = self.upconv3(dec4)
         dec3 = torch.cat((enc3, dec3), dim=1)
