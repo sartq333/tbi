@@ -43,10 +43,17 @@ def evaluate_model(model, dataloader, criterion, device):
     accuracy = total_correct / total_pixels
     return avg_loss, accuracy
 
-num_epochs = 10
+num_epochs = 2
+total_correct = 0
+total_pixels = 0
+
+train_loss_lst = []
+train_accuracy_lst = []
+test_loss_lst = []
+test_accuracy_lst = []
 
 for epoch in range(num_epochs):
-    
+    print(f"Epoch: {epoch+1}")
     model.train()
     epoch_loss = 0
     
@@ -62,9 +69,20 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
 
-        print(f"Train loss at {epoch+1} epoch: {epoch_loss}")
-        epoch_loss += loss.item()
+        preds = torch.sigmoid(outputs) > 0.5
+        total_correct += (preds==masks).sum().item()
+        total_pixels += torch.numel(preds)
 
-    avg_train_loss = epoch_loss / len(train_dataloader)
+        accuracy = total_correct / total_pixels
+        epoch_loss += loss.item()
+    
+    avg_train_loss = epoch_loss/len(train_dataloader)
+    print(f"Train loss at {epoch+1} epoch: {avg_train_loss}")
+    print(f"Train accuracy at {epoch+1} epoch: ")
     test_loss, test_accuracy = evaluate_model(model, test_dataloader, criterion, device)
     print(f"Test loss at {epoch+1} epoch: {test_loss}")
+    print(f"Test accuracy at {epoch+1} epoch: {test_accuracy}")
+    train_loss_lst.append(avg_train_loss)
+    test_loss_lst.append(test_loss)
+    test_loss_lst.append(test_loss)
+    test_accuracy_lst.append(test_accuracy)
