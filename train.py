@@ -7,10 +7,10 @@ from data import SegmentationDataset, transform_img
 
 transform = transform_img()
 
-train_dataset = SegmentationDataset("data/images/", "data/masks/", transform=transform)
+train_dataset = SegmentationDataset("DUTS-TR-Image", "DUTS-TR-Mask", transform=transform)
 train_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=True)
 
-test_dataset = SegmentationDataset("data/images/", "data/masks/", transform=transform)
+test_dataset = SegmentationDataset("DUTS-TE-Image", "DUTS-TE-Mask", transform=transform)
 test_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=True)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
