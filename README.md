@@ -17,3 +17,4 @@ This is the [dataset](https://saliencydetection.net/duts/) used for this project
 3. add details on how the project was done and its setup instructions.
 4. upload model weights on hf.
 5. compare results of tbi with [rembg](https://github.com/danielgatis/rembg). 
+6. give option of different colors for text.
