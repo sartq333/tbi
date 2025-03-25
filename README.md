@@ -1,6 +1,6 @@
 # tbi: text behind image
 
-Add text in the image's background (something like this):
+Add text in the image's background (something like this, test it out [here](https://huggingface.co/spaces/Sartc/tbi)):
 
 ![final_output_3](https://github.com/user-attachments/assets/041a3261-d740-4d3b-b92c-dc28542529c3)
 
