@@ -2,6 +2,8 @@
 
 Add text in the image's background (something like this):
 
+![final_output_3](https://github.com/user-attachments/assets/041a3261-d740-4d3b-b92c-dc28542529c3)
+
 ![final_output](https://github.com/user-attachments/assets/ec35957e-b8fc-46fc-9665-eb22e9829628)
 
 ![final_output_2](https://github.com/user-attachments/assets/b13eecda-824e-4168-b29e-d3e3132847b9)
