@@ -10,3 +10,10 @@ Add text in the image's background (something like this):
 
 This is the [dataset](https://saliencydetection.net/duts/) used for this project. You can also download the dataset from [Kaggle](https://www.kaggle.com/datasets/balraj98/duts-saliency-detection-dataset).
 
+# Work to do:
+
+1. fix alignment issues.
+2. host on a gradio UI.
+3. add details on how the project was done and its setup instructions.
+4. upload model weights on hf.
+5. compare results of tbi with [rembg](https://github.com/danielgatis/rembg). 
