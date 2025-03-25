@@ -4,8 +4,6 @@ from PIL import Image
 from unet import UNet
 from data import transform_img 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 def load_model(weights_path, device):
     model = UNet(in_channels=3, out_channels=1)  
     model.load_state_dict(torch.load(weights_path, map_location=device))
@@ -30,8 +28,10 @@ def save_output(mask, save_path):
     mask_image = Image.fromarray(mask[0])  
     mask_image.save(save_path)
 
-weights_path = "unet_model.pth"
-model = load_model(weights_path, device)
-image_tensor = preprocess_image("DUTS-TE-Image/ILSVRC2012_test_00000003.jpg")
-mask = predict(model, image_tensor, device)
-save_output(mask, "predicted_mask.jpg")
+if __name__ == "__main__":
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    weights_path = "unet_model.pth"
+    model = load_model(weights_path, device)
+    image_tensor = preprocess_image("DUTS-TE-Image/ILSVRC2012_test_00000003.jpg")
+    mask = predict(model, image_tensor, device)
+    save_output(mask, "predicted_mask.jpg")
