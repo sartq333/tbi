@@ -73,16 +73,16 @@ for epoch in range(num_epochs):
         total_correct += (preds==masks).sum().item()
         total_pixels += torch.numel(preds)
 
-        accuracy = total_correct / total_pixels
         epoch_loss += loss.item()
-    
+
+    train_accuracy = total_correct / total_pixels        
     avg_train_loss = epoch_loss/len(train_dataloader)
     print(f"Train loss at {epoch+1} epoch: {avg_train_loss}")
-    print(f"Train accuracy at {epoch+1} epoch: ")
+    print(f"Train accuracy at {epoch+1} epoch: {train_accuracy}")
     test_loss, test_accuracy = evaluate_model(model, test_dataloader, criterion, device)
     print(f"Test loss at {epoch+1} epoch: {test_loss}")
     print(f"Test accuracy at {epoch+1} epoch: {test_accuracy}")
     train_loss_lst.append(avg_train_loss)
     test_loss_lst.append(test_loss)
-    test_loss_lst.append(test_loss)
+    train_accuracy_lst.append(train_accuracy)
     test_accuracy_lst.append(test_accuracy)
