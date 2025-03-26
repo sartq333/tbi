@@ -14,6 +14,14 @@ This is the [dataset](https://saliencydetection.net/duts/) used for this project
 
 Either you can set this up using pip/conda or via [uv](https://x.com/NielsRogge/status/1901210265049342292). I've added the requirements.txt file for this purpose.  
 
+If you want to use it directly locally without training then download the model weights (unet_model.pth) from [here](https://huggingface.co/spaces/Sartc/tbi/tree/main). 
+
+Clone the repository using this command: `git clone https://github.com/sartq333/tbi.git`.
+
+Then create a new conda environment or virtual environment and run this command: `pip install -r requirements.txt`.
+
+After this run this command in your terminal: `python3 app.py`. 
+
 # Work to do:
 
 1. fix alignment issues.
