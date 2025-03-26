@@ -28,10 +28,12 @@ After this run this command in your terminal: `python3 app.py`.
    
 ~2. host on a gradio UI.~
 
-3. add details on how the project was done and its setup instructions.
+~3. add details on how the project was done and its setup instructions.~
 
 ~4. upload model weights on hf.~
 
 5. compare results of tbi with [rembg](https://github.com/danielgatis/rembg). 
 
-6. give option of different colors for text.
+6. give option of different colors for text (fix this on hf spaces, works locally).
+
+7. options for different fonts.
