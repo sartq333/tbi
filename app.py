@@ -9,14 +9,15 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 weights_path = "unet_model.pth"
 model = load_model(weights_path, device)
 
-def process_image(image, text, font_size):
+def process_image(image, text, font_size, text_color):
     image = image.convert("RGB")
     print(f"image: {image}")
     background_with_text = image.copy()
     draw = ImageDraw.Draw(background_with_text)
     font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSansBold.ttf", font_size)
     text_position = (50, 50)
-    text_color = (0, 0, 0)
+    # text_color = (0, 0, 0)
+    text_color = tuple(int(text_color[i:i+2], 16) for i in (1, 3, 5))
     draw.text(text_position, text, fill=text_color, font=font)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -43,7 +44,8 @@ interface = gr.Interface(
     inputs=[
         gr.Image(type="pil", label="Upload Image"),
         gr.Textbox(label="Enter Text"),
-        gr.Slider(10, 70, value=5, step=5, label="Font Size")
+        gr.Slider(10, 70, value=5, step=5, label="Font Size"),
+        gr.ColorPicker(value="#000000", label="Text Color")
     ],
     outputs=gr.Image(type="pil", label="Output Image"),
     title="Text Behind Image Generator",
