@@ -10,6 +10,10 @@ Add text in the image's background (something like this, test it out [here](http
 
 This is the [dataset](https://saliencydetection.net/duts/) used for this project. You can also download the dataset from [Kaggle](https://www.kaggle.com/datasets/balraj98/duts-saliency-detection-dataset).
 
+# Setup details:
+
+Either you can set this up using pip/conda or via [uv](https://x.com/NielsRogge/status/1901210265049342292). I've added the requirements.txt file for this purpose.  
+
 # Work to do:
 
 1. fix alignment issues.
